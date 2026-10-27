@@ -20,8 +20,7 @@ export const config  = {
     // 1. 静态URL: 直接指定API基础URL 末尾要加 /api/v1 !!!!!!!!!!!!!!! 除非你自己改过路由要不然别不加
     // 2. 自动获取: 从当前域名自动生成API基础URL
     API_CONFIG: {
-        // XBoard 主题包默认与面板同域部署，自动使用当前域名的 /api/v1。
-        // 如前端与 XBoard 分域部署，请改为 'static' 并在 staticBaseUrl 填写 API 地址。
+        // 分域部署使用 'static'，同域部署可改为 'auto' 自动使用当前域名的 /api/v1。
         urlMode: 'static',
       
         // 是否展示后端联通性检测
@@ -31,7 +30,7 @@ export const config  = {
         // 支持字符串形式(单个API地址)或数组形式(多个备选API地址)
         // 多个地址时，会按顺序检测可用性，并使用第一个可用的地址
         staticBaseUrl: [
-            'https://apiapi.ytjcok.com/api/v1'
+            'https://apiapi.pingnetwork.org/api/v1'
         ],
       
         // 自动获取模式配置 (urlMode = 'auto'时使用)
