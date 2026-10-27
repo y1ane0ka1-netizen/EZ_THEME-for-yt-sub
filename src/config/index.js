@@ -2,6 +2,7 @@
  * 外部配置文件
  * index.html 中可以搜索 EZ 将其替换为您的网站名称
  * logo 摆放位置为 images/logo.png
+ * 横版品牌 Logo 位置为 images/logo-wide.png（落地页标题使用）
  */
 
 export const config  = {
@@ -65,24 +66,24 @@ export const config  = {
 
     // ====================  网站基础配置  ====================
     SITE_CONFIG: {
-        siteName: '云图',
-        siteDescription: '云游无界，图揽天下。',
+        siteName: 'Ping Network',
+        siteDescription: 'Ping 一下，连通全球。',
         // copyright会自动使用当前年份
-        copyright: `© ${new Date().getFullYear()} Yun Tu. All Rights Reserved.`,
+        copyright: `© ${new Date().getFullYear()} Ping Network. All Rights Reserved.`,
 
         // 是否显示标题中的网站Logo (true=显示, false=隐藏)
-        showLogo: false,
+        showLogo: true,
 
         // Landing页面多语言标语
         landingText: {
-            'zh-CN': '探索全球网络无限可能',
-            'vi-VN': 'Khám phá khả năng vô hạn của mạng toàn cầu',
-            'en-US': 'Explore Unlimited Possibilities of Global Network',
-            'zh-TW': '探索全球網絡無限可能',
-            'ja-JP': 'グローバルネットワークの無限の可能性',
-            'ko-KR': '글로벌 네트워크의 무한한 가능성을 탐색하세요',
-            'ru-RU': 'Исследуйте безграничные возможности глобальной сети',
-            'fa-IR': 'امکانات نامحدود شبکه جهانی را کاوش کنید'
+            'zh-CN': 'Ping 一下，连通全球',
+            'vi-VN': 'Một cú Ping, kết nối cả thế giới',
+            'en-US': 'Ping once, connect the world',
+            'zh-TW': 'Ping 一下，連通全球',
+            'ja-JP': 'Ping 一下、世界とつながる',
+            'ko-KR': '한 번의 Ping, 전 세계와 연결',
+            'ru-RU': 'Один Ping — весь мир онлайн',
+            'fa-IR': 'یک پینگ، اتصال به تمام دنیا'
         },
 
         // 自定义landing页面路径（相对于public目录

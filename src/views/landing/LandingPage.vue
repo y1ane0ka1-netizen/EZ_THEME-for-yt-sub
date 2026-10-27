@@ -38,9 +38,29 @@
 
       <div class="site-title">
 
-        <img v-if="siteConfig.showLogo" src="/images/logo.png" alt="Logo" class="site-logo-img" />
+        <!-- 品牌横版 Logo（含 Ping Network 字样），显示时不再重复输出站点名称文本 -->
 
-        {{ siteConfig.siteName }}
+        <template v-if="siteConfig.showLogo">
+
+          <img
+
+            v-if="!brandLogoFailed"
+
+            src="/images/logo-wide.png"
+
+            :alt="siteConfig.siteName"
+
+            class="site-brand-logo"
+
+            @error="brandLogoFailed = true"
+
+          />
+
+          <span v-if="brandLogoFailed" class="site-title-text">{{ siteConfig.siteName }}</span>
+
+        </template>
+
+        <span v-else class="site-title-text">{{ siteConfig.siteName }}</span>
 
       </div>
 
@@ -132,6 +152,10 @@ export default {
     
 
     const siteConfig = ref(SITE_CONFIG);
+
+    // 横版品牌 Logo 加载失败时回退为纯文本站点名称
+
+    const brandLogoFailed = ref(false);
 
     const defaultConfig = ref(DEFAULT_CONFIG);
 
@@ -271,6 +295,8 @@ export default {
       landingPageRef,
 
       siteConfig,
+
+      brandLogoFailed,
 
       defaultConfig,
 
@@ -592,8 +618,53 @@ export default {
 
   }
 
-}
+  // 横版品牌 Logo：深色字样在深色背景下不可读，统一使用浅色底板承载
 
+  .site-brand-logo {
+
+    box-sizing: border-box;
+
+    height: 84px;
+
+    width: auto;
+
+    max-width: min(90vw, 520px);
+
+    object-fit: contain;
+
+    padding: 10px 24px;
+
+    border-radius: 16px;
+
+    background-color: rgba(255, 255, 255, 0.94);
+
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
+
+  }
+
+  .site-title-text {
+
+    display: inline-block;
+
+  }
+
+  @media (max-width: 480px) {
+
+    .site-brand-logo {
+
+      height: 62px;
+
+      max-width: 100%;
+
+      padding: 8px 16px;
+
+      border-radius: 12px;
+
+    }
+
+  }
+
+}
 
 
 .landing-text {
